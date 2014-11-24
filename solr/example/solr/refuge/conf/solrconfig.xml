@@ -970,8 +970,7 @@
        <!-- Query settings -->
        <str name="defType">edismax</str>
        <str name="qf">
-          text^0.5 features^1.0 name^1.2 sku^1.5 id^10.0 manu^1.1 cat^1.4
-          title^10.0 description^5.0 keywords^5.0 author^2.0 resourcename^1.0
+          name_txt^1.0 alias_txt^1.0
        </str>
        <str name="df">text</str>
        <str name="mm">100%</str>
@@ -989,29 +988,47 @@
        <!-- Faceting defaults -->
        <str name="facet">on</str>
        <str name="facet.missing">true</str>
-       <str name="facet.field">cat</str>
-       <str name="facet.field">manu_exact</str>
-       <str name="facet.field">content_type</str>
-       <str name="facet.field">author_s</str>
-       <str name="facet.query">ipod</str>
-       <str name="facet.query">GB</str>
+       <str name="facet.field">for_what_comitted_en</str>
+       <str name="facet.field">by_whom_commited_en</str>
+       <str name="facet.field">whereborn_en</str>
+       <str name="facet.field">parentage_en</str>
+       <str name="facet.field">religion_en</str>
+       <str name="facet.field">father_living_s</str>
+       <str name="facet.field">mother_living_s</str>
+       <str name="facet.field">has_step_father_s</str>
+       <str name="facet.field">has_step_mother_s</str>
+       <str name="facet.field">father_drinks_s</str>
+       <str name="facet.field">mother_drinks_s</str>
+       <str name="facet.field">appearance_good_s</str>
+       <str name="facet.field">appearance_bad_s</str>
+       <str name="facet.field">uses_tobacco_s</str>
+       <str name="facet.field">uses_liquour_s</str>
+       <str name="facet.field">swears_s</str>
+       <str name="facet.field">had_regular_work_s</str>
+       <str name="facet.field">can_read_s</str>
+       <str name="facet.field">no_of_reader_s</str>
+       <str name="facet.field">can_write_s</str>
+       <str name="facet.field">played_truant_s</str>
+       <str name="facet.field">no_of_times_in_refuge_s</str>
+       <str name="facet.field">complaint_of_father_s</str>
+       <str name="facet.field">complaint_of_mother_s</str>
+       <str name="facet.field">complaint_of_police_s</str>
+       <str name="facet.field">disposal_en</str>
+       <str name="facet.field">image_no_s</str>
+       <str name="facet.field">date_dt</str>
+       <str name="facet.field">age_i</str>
        <str name="facet.mincount">1</str>
-       <str name="facet.pivot">cat,inStock</str>
        <str name="facet.range.other">after</str>
-       <str name="facet.range">price</str>
-       <int name="f.price.facet.range.start">0</int>
-       <int name="f.price.facet.range.end">600</int>
-       <int name="f.price.facet.range.gap">50</int>
-       <str name="facet.range">popularity</str>
-       <int name="f.popularity.facet.range.start">0</int>
-       <int name="f.popularity.facet.range.end">10</int>
-       <int name="f.popularity.facet.range.gap">3</int>
-       <str name="facet.range">manufacturedate_dt</str>
-       <str name="f.manufacturedate_dt.facet.range.start">NOW/YEAR-10YEARS</str>
-       <str name="f.manufacturedate_dt.facet.range.end">NOW</str>
-       <str name="f.manufacturedate_dt.facet.range.gap">+1YEAR</str>
-       <str name="f.manufacturedate_dt.facet.range.other">before</str>
-       <str name="f.manufacturedate_dt.facet.range.other">after</str>
+       <str name="facet.range">age_i</str>
+       <int name="f.age_i.facet.range.start">0</int>
+       <int name="f.age_i.facet.range.end">30</int> 
+       <int name="f.age_i.facet.range.gap">1</int> 
+       <str name="facet.range">date_dt</str>
+       <str name="f.date_dt.facet.range.start">1869-01-01T00:00:00Z</str>
+       <str name="f.date_dt.facet.range.end">1872-12-31T23:59:59Z</str>
+       <str name="f.date_dt.facet.range.gap">+1MONTH</str>
+       <str name="f.date_dt.facet.range.other">before</str>
+       <str name="f.date_dt.facet.range.other">after</str>
 
        <!-- Highlighting defaults -->
        <str name="hl">on</str>
@@ -1822,8 +1839,7 @@
 
   <queryResponseWriter name="json" class="solr.JSONResponseWriter">
      <!-- For the purposes of the tutorial, JSON responses are written as
-      plain text so that they are easy to read in *any* browser.
-      If you expect a MIME type of "application/json" just remove this override.
+      plain text so that they are easy to read in *any* browser.  If you expect a MIME type of "application/json" just remove this override.
      -->
     <str name="content-type">text/plain; charset=UTF-8</str>
   </queryResponseWriter>
