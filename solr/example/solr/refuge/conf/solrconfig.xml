@@ -988,8 +988,8 @@
        <!-- Faceting defaults -->
        <str name="facet">on</str>
        <str name="facet.missing">true</str>
-       <str name="facet.field">for_what_comitted_en</str>
-       <str name="facet.field">by_whom_commited_en</str>
+       <str name="facet.field">for_what_committed_en</str>
+       <str name="facet.field">by_whom_committed_en</str>
        <str name="facet.field">whereborn_en</str>
        <str name="facet.field">parentage_en</str>
        <str name="facet.field">religion_en</str>
