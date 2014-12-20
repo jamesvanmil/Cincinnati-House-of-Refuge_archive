@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="refuge">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+  </head>
+    <body ng-controller="searchController as search">
+      <ul class="list-group">
+        <li class="list-group-item container" ng-repeat="doc in search.results.response.docs">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>{{doc.name_txt[0]}}</h4>
+            <p>History no.: {{doc.history_number_i}}</p>
+            <p>Age: {{doc.age_i}}</p>
+            <p>For what commited: {{doc.for_what_commited_en[0]}}</p>
+            <p>By whom commited: {{doc.by_whom_commited_en[0]}}</p>
+            <p>When committed: {{doc.date_dt}}</p>
+            <p>Whereborn: {{doc.whereborn_en[0]}}</p>
+            <p>Parentage: {{doc.parentage_en[0]}}</p>
+            <p>Religion: {{doc.religion_en[0]}}</p>
+            <p>Disposal: {{doc.disposal_en[0]}}</p>
+          </div>
+          <div class="col-sm-4">
+            <ul class="list-group">
+              <li class="list-group-item">Father living: {{doc.father_living_s}}</li>
+              <li class="list-group-item">Mother living: {{doc.mother_living_s}}</li>
+              <li class="list-group-item">Has step father: {{doc.has_step_father_s}}</li>
+              <li class="list-group-item">Has step mother: {{doc.has_step_mother_s}}</li>
+              <li class="list-group-item">Father drinks: {{doc.father_drinks_s}}</li>
+              <li class="list-group-item">Mother drinks: {{doc.mother_drinks_s}}</li>
+              <li class="list-group-item">Appearance good: {{doc.appearance_good_s}}</li>
+              <li class="list-group-item">Appearance bad: {{doc.appearance_bad_s}}</li>
+              <li class="list-group-item">Uses tobacco: {{doc.uses_tobacco_s}}</li>
+              <li class="list-group-item">Uses liquor: {{doc.uses_liquour_s}}</li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <ul class="list-group">
+              <li class="list-group-item">Swears: {{doc.swears_s}}</li>
+              <li class="list-group-item">Had regular work: {{doc.had_regular_work_s}}</li>
+              <li class="list-group-item">Can read: {{doc.can_read_s}}</li>
+              <li class="list-group-item">Can write: {{doc.can_write_s}}</li>
+              <li class="list-group-item">Played truant: {{doc.played_truant_s}}</li>
+              <li class="list-group-item">No. of times in the refuge: {{doc.no_of_times_in_refuge_s}}</li>
+              <li class="list-group-item">Complaint of father: {{doc.complaint_of_father_s}}</li>
+              <li class="list-group-item">Complaint of mother: {{doc.complaint_of_mother_s}}</li>
+              <li class="list-group-item">Complaint of police: {{doc.complaint_of_police_s}}</li>
+              <li class="list-group-item">No. of reader: {{doc.no_of_reader_s}}</li>
+            </ul>
+          </div>
+        </div>
+        </li>
+      </ul>
+
+      <script type="text/javascript" src="angular.min.js"></script>
+      <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>
