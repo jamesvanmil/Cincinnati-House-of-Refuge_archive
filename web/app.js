@@ -4,16 +4,20 @@
   app.controller('searchController', [ '$http', function($http){
     var search = this;
     search.results = [ ];
+    search.facets = { };
+    search.header = { };
+    search.facetData = { };
+    search.facetFields = { };
+    search.facetIndex = [ ];
 
     // defaults gather all of the objects
     this.queryDefaults = {
-      q: '*',
-      rows: '100',
-      wt: 'json',
+      'q' : '*',
+      'rows' : '100',
+      'wt' : 'json',
+      'json.nl' : 'map'
     };
-
     this.query = search.queryDefaults;
-    
 
     // construct the search URL
     function buildSolrQuery(params) {
@@ -28,16 +32,17 @@
       return baseUrl + query;
     };
 
-    // get new results
-    this.updateQuery = function() {
+    // get new results and save the useful bits
+    this.runSolrQuery = function() {
       $http.get(buildSolrQuery(this.query)).success(function(data){
-        search.results = data;
+        search.facetData = { };
+        search.results = data.response.docs;
+        search.facetFields = data.facet_counts.facet_fields
+        search.facetIndex = Object.keys(search.facetFields);
       });
     };
 
     // default results - will load when initialized
-    $http.get(buildSolrQuery(this.query)).success(function(data){
-      search.results = data;
-    });
+    this.runSolrQuery(this.query);
   }]);
 })();

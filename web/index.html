@@ -5,15 +5,24 @@
   </head>
     <body ng-controller="searchController as search">
 
-      <form name="queryForm" class="container" ng-submit="search.updateQuery()">
+      <form name="queryForm" class="container" ng-submit="search.runSolrQuery()">
         <h4>Search</h4>
         <label>Name:</label>
         <input ng-model="search.query.q" />
         <input type="submit" value="submit" />
       </form>
 
+      <div class="container">
+        <ul class-"list-group" ng-repeat="facet in search.facetIndex">
+          <h5>{{facet}}:</h5>
+          <li class= "list-group-item" ng-repeat="(label, value) in search.facetFields[facet]" ng-if="label != ''">
+            {{label}} - {{value}}
+          </li>
+        </ul>
+      </div>
+
       <ul class="list-group">
-        <li class="list-group-item container" ng-repeat="doc in search.results.response.docs">
+        <li class="list-group-item container" ng-repeat="doc in search.results">
         <div class="row">
           <div class="col-sm-4">
             <h4>{{doc.name_txt[0]}}</h4>
