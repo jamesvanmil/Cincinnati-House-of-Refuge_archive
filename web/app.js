@@ -26,7 +26,7 @@
       var facet_query_string = "";
       for (var i = 0, len = facetKeys.length; i < len; i++) {
         key = facetKeys[i];
-        value = facets[key];
+        value = escape(facets[key].replace(/ /g, "+"));
         facet_query_string = facet_query_string + "fq=" + key + ":\"" + value + "\"&"
       }
       return facet_query_string

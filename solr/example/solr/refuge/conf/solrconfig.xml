@@ -988,11 +988,11 @@
        <!-- Faceting defaults -->
        <str name="facet">on</str>
        <str name="facet.missing">true</str>
-       <str name="facet.field">for_what_committed_en</str>
-       <str name="facet.field">by_whom_committed_en</str>
-       <str name="facet.field">whereborn_en</str>
-       <str name="facet.field">parentage_en</str>
-       <str name="facet.field">religion_en</str>
+       <str name="facet.field">for_what_committed_s</str>
+       <str name="facet.field">by_whom_committed_s</str>
+       <str name="facet.field">whereborn_s</str>
+       <str name="facet.field">parentage_s</str>
+       <str name="facet.field">religion_s</str>
        <str name="facet.field">father_living_s</str>
        <str name="facet.field">mother_living_s</str>
        <str name="facet.field">has_step_father_s</str>
@@ -1013,10 +1013,7 @@
        <str name="facet.field">complaint_of_father_s</str>
        <str name="facet.field">complaint_of_mother_s</str>
        <str name="facet.field">complaint_of_police_s</str>
-       <str name="facet.field">disposal_en</str>
-       <str name="facet.field">image_no_s</str>
-       <str name="facet.field">date_dt</str>
-       <str name="facet.field">age_i</str>
+       <str name="facet.field">disposal_s</str>
        <str name="facet.mincount">1</str>
        <str name="facet.range.other">after</str>
        <str name="facet.range">age_i</str>
