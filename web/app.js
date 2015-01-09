@@ -19,8 +19,21 @@
     };
     this.query = search.queryDefaults;
 
+    // function to construct facet queries
+    this.queryFacets = { };
+    this.buildQueryFacets = function(facets) {
+      facetKeys = Object.keys(facets);
+      var facet_query_string = "";
+      for (var i = 0, len = facetKeys.length; i < len; i++) {
+        key = facetKeys[i];
+        value = facets[key];
+        facet_query_string = facet_query_string + "fq=" + key + ":\"" + value + "\"&"
+      }
+      return facet_query_string
+    }
+
     // construct the search URL
-    function buildSolrQuery(params) {
+    this.buildSolrQuery = function(params, facets) {
       var baseUrl = "http://thesubdirectory.com:8983/solr/refuge/browse?";
       var paramArray = Object.keys(params);
       var query = "";
@@ -29,12 +42,12 @@
         value = params[key];
         query = query + key + "=" + value +"&";
       }
-      return baseUrl + query;
+      return baseUrl + query + this.buildQueryFacets(facets);
     };
 
     // get new results and save the useful bits
     this.runSolrQuery = function() {
-      $http.get(buildSolrQuery(this.query)).success(function(data){
+      $http.get(this.buildSolrQuery(this.query, this.queryFacets)).success(function(data){
         search.facetData = { };
         search.results = data.response.docs;
         search.facetFields = data.facet_counts.facet_fields
